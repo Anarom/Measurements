@@ -1,0 +1,141 @@
+Checks:
+  -*,
+  ___________ENABLED_GLOB_CHECKS__________,
+  bugprone-*,
+  clang-*,
+  cppcoreguidelines-*,
+  google-*,
+  hicpp-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+
+  ________ENABLED_INDIVIDUAL_CHECKS_______,
+  llvm-namespace-comment,
+
+  ____________DISABLED_CHECKS_____________,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-throwing-static-initialization,
+  -cppcoreguidelines-owning-memory,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-pro-type-vararg,
+  -cppcoreguidelines-pro-type-union-access,
+  -google-build-using-namespace,
+  -google-readability-todo,
+  -misc-const-correctness,
+  -misc-include-cleaner,
+  -misc-use-anonymous-namespace,
+  -misc-use-internal-linkage,
+  -modernize-type-traits,
+  -modernize-use-nodiscard,
+  -modernize-use-trailing-return-type,
+  -portability-avoid-pragma-once,
+  -readability-identifier-length,
+  -readability-braces-around-statements,
+  -readability-magic-numbers,
+  -readability-math-missing-parentheses,
+  -readability-redundant-access-specifiers,
+  -readability-uppercase-literal-suffix,
+
+  ____________DISABLED_ALIASES____________,
+  -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-c-copy-assignment-signature,
+  -cppcoreguidelines-explicit-virtual-functions,
+  -cppcoreguidelines-macro-to-enum,
+  -cppcoreguidelines-narrowing-conversions,
+  -cppcoreguidelines-noexcept-destructor,
+  -cppcoreguidelines-noexcept-move-operations,
+  -cppcoreguidelines-noexcept-swap,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -cppcoreguidelines-use-default-member-init,
+  -google-readability-braces-around-statements,
+  -google-readability-casting,
+  -google-readability-function-size,
+  -google-readability-namespace-comments,
+  -hicpp-avoid-c-arrays,
+  -hicpp-avoid-goto,
+  -hicpp-braces-around-statements,
+  -hicpp-deprecated-headers,
+  -hicpp-explicit-conversions,
+  -hicpp-function-size,
+  -hicpp-invalid-access-moved,
+  -hicpp-member-init,
+  -hicpp-move-const-arg,
+  -hicpp-named-parameter,
+  -hicpp-new-delete-operators,
+  -hicpp-no-array-decay,
+  -hicpp-no-malloc,
+  -hicpp-noexcept-move,
+  -hicpp-special-member-functions,
+  -hicpp-static-assert,
+  -hicpp-undelegated-constructor,
+  -hicpp-uppercase-literal-suffix,
+  -hicpp-use-auto,
+  -hicpp-use-emplace,
+  -hicpp-use-equals-default,
+  -hicpp-use-equals-delete,
+  -hicpp-use-noexcept,
+  -hicpp-use-nullptr,
+  -hicpp-use-override,
+  -hicpp-vararg,
+  -llvm-else-after-return,
+  -llvm-qualified-auto
+
+CheckOptions:
+  bugprone-assert-side-effect.AssertMacros: assert,NSAssert,NSCAssert,Q_ASSERT,Q_ASSERT_X,Q_ASSUME
+  bugprone-misplaced-widening-cast.CheckImplicitCasts: true
+  bugprone-string-constructor.StringNames: ::std::basic_string;::std::basic_string_view;::std::string
+  cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor: true
+  cppcoreguidelines-pro-bounds-avoid-unchecked-container-access.ExcludeClasses: ::std::map;::std::unordered_map;
+    ::std::flat_map;::QMap;::QHash;::QVariantHash;::QJsonObject
+  hicpp-signed-bitwise.IgnorePositiveIntegerLiterals: true
+  llvm-namespace-comment.ShortNamespaceLines: 10
+  llvm-namespace-comment.SpacesBeforeComments: 2
+  misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic: true
+  modernize-avoid-bind.PermissiveParameterList: true
+  modernize-use-emplace.ContainersWithPushBack: ::std::vector;::std::list;::std::deque;::QList;::QVector
+  readability-braces-around-statements.ShortStatementLines: 2
+  readability-else-after-return.WarnOnConditionVariables: false
+  readability-else-after-return.WarnOnUnfixable: false
+  readability-identifier-naming.ClassCase: CamelCase
+  readability-identifier-naming.ConstantCase: CamelCase
+  readability-identifier-naming.ConstantPrefix: k
+  readability-identifier-naming.EnumCase: CamelCase
+  readability-identifier-naming.EnumConstantCase: CamelCase
+  readability-identifier-naming.LocalConstantCase: camelBack
+  readability-identifier-naming.LocalConstantPrefix: ''
+  readability-identifier-naming.LocalVariableCase: camelBack
+  readability-identifier-naming.MethodCase: camelBack
+  readability-identifier-naming.PrivateMemberPrefix: m_
+  readability-identifier-naming.MethodIgnoredRegexp: (sl_|s_|_).+
+  readability-identifier-naming.NamespaceCase: lower_case
+  readability-identifier-naming.ParameterCase: camelBack
+  readability-identifier-naming.ScopedEnumConstantCase: CamelCase
+  readability-identifier-naming.TemplateParameterCase: CamelCase
+  readability-identifier-naming.TypeAliasCase: CamelCase
+  readability-implicit-bool-conversion.AllowPointerConditions: true
+  readability-redundant-string-init.StringNames: ::std::basic_string_view;::std::basic_string;::std::string
+  readability-uniqueptr-delete-release.PreferResetCall: true
+  performance-unnecessary-value-param.AllowedTypes: ::std::shared_ptr;::QBitArray;::QBitmap;::QBrush;::QByteArray;
+    ::QByteArrayList;::QByteArrayView;::QCache;::QCollator;::QCollatorSortKey;::QCommandLineOption;::QContiguousCache;
+    ::QCursor;::QDBusPendingCall;::QDBusUnixFileDescriptor;::QDateTime;::QDebug;::QDir;::QDnsDomainNameRecord;
+    ::QDnsHostAddressRecord;::QDnsMailExchangeRecord;::QDnsServiceRecord;::QDnsTextRecord;::QDnsTlsAssociationRecord;
+    ::QFileInfo;::QFont;::QFontInfo;::QFontMetrics;::QFontMetricsF;::QFontVariableAxis;::QFormDataBuilder;
+    ::QFormDataPartBuilder;::QGeoAreaMonitorInfo;::QGeoPositionInfo;::QGeoSatelliteInfo;::QGlyphRun;::QGradient;::QHash;
+    ::QHostAddress;::QHttp1Configuration;::QHttp2Configuration;::QHttpPart;::QIcon;::QImage;::QJsonArray
+    ;::QJsonDocument;::QJsonObject;::QJsonParseError;::QJsonValue;::QKeySequence;::QLinkedList;::QList;::QLocale;
+    ::QLowEnergyAdvertisingData;::QLowEnergyAdvertisingParameters;::QLowEnergyCharacteristicData;
+    ::QLowEnergyConnectionParameters;::QLowEnergyDescriptorData;::QLowEnergyServiceData;::QMap;::QMimeType;
+    ::QMqttTopicFilter;::QMqttTopicName;::QMultiHash;::QMultiMap;::QNetworkAddressEntry;::QNetworkCacheMetaData;
+    ::QNetworkCookie;::QNetworkInterface;::QNetworkProxy;::QNetworkProxyQuery;::QNetworkRequest;
+    ::QNetworkRequestFactory;::QOpenGLDebugMessage;::QPageRanges;::QPalette;::QPen;::QPersistentModelIndex;
+    ::QPicture;::QPixmap;::QPolygon;::QPolygonF;::QProcessEnvironment;::QQueue;::QRawFont;::QRegExp;::QRegion;
+    ::QRegularExpression;::QRegularExpressionMatch;::QRegularExpressionMatchIterator;::QSet;::QSqlField;::QSqlQuery;
+    ::QSqlRecord;::QSslCertificate;::QSslCertificateExtension;::QSslCipher;::QSslConfiguration;
+    ::QSslDiffieHellmanParameters;::QSslError;::QSslKey;::QSslPreSharedKeyAuthenticator;::QStack;::QStaticText;
+    ::QStorageInfo;::std::string;::std::stringList;::QTextBlockFormat;::QTextBoundaryFinder;::QTextCharFormat;::QTextCursor;
+    ::QTextDocumentFragment;::QTextFormat;::QTextFrameFormat;::QTextImageFormat;::QTextListFormat;
+    ::QTextTableCellFormat;::QTextTableFormat;::QUrl;::QUrlQuery;::QVariant;::QSharedPointer;::QDomElement;::QDomNode;

@@ -1,0 +1,233 @@
+format:
+  disable: false
+  line_ending: unix
+  line_width: 100
+  tab_size: 4
+  use_tabs: false
+  fractional_tab_policy: use-space
+  max_hanging_wrap_lines: 3
+  max_hanging_wrap_positional_args: 5
+  max_hanging_wrap_groups: 3
+  max_rows_cmdline: 2
+  always_wrap:
+    - target_sources
+    - target_link_libraries
+    - target_include_directories
+    - CPMDeclarePackage
+    - CPMAddPackage
+  require_valid_layout: false
+  dangle_parens: false
+  min_prefix_length: 4
+  max_prefix_length: 10
+  space_before_control_paren: false
+  space_before_definition_paren: false
+  command_case: unchanged
+  keyword_case: upper
+  enable_sort: true
+  autosort: true
+markup:
+  enable_markup: true
+  first_comment_is_literal: false
+  bullet_char: '*'
+  enum_char: .
+  fence_pattern: ^\s*([`~]{3}[`~]*)(.*)$
+  ruler_pattern: ^\s*[^\w\s]{3}.*[^\w\s]{3}$
+  hashruler_min_length: 10
+  canonicalize_hashrulers: true
+commands:
+  generate_export_header:
+    pargs: 1
+    kwargs:
+      BASE_NAME:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      EXPORT_FILE_NAME:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      EXPORT_MACRO_NAME:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      INCLUDE_GUARD_NAME:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      PREFIX_NAME:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+  install:
+    kwargs:
+      FILES:
+        nargs: 1+
+        sortable: true
+      DESTINATION:
+        nargs: 1
+      TARGETS:
+        nargs: 1
+      EXPORT:
+        nargs: 1
+      FILE_SET:
+        nargs: 1
+      LIBRARY:
+        kwargs:
+          DESTINATION:
+            nargs: 1
+      ARCHIVE:
+        kwargs:
+          DESTINATION:
+            nargs: 1
+      NAMESPACE:
+        nargs: 1
+      FILE:
+        nargs: 1
+  project:
+    pargs: 1
+    kwargs:
+      DESCRIPTION:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      HOMEPAGE_URL:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      LANGUAGES:
+        nargs: +
+        sortable: false
+        no_autosort: false
+      VERSION:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+  qt_add_resources:
+    pargs: 2
+    kwargs:
+      BASE:
+        nargs: 1
+      PREFIX:
+        nargs: 1
+      FILES:
+        nargs: 1+
+    flags:
+      - BIG_RESOURCES
+      - DISCARD_FILE_CONTENTS
+  qt_add_protobuf:
+    pargs: 1
+    flags:
+      - GENERATE_NON_FINAL_MESSAGES
+      - GENERATE_PACKAGE_SUBFOLDERS
+      - COPY_COMMENTS
+      - QML
+    kwargs:
+      PROTO_FILES:
+        nargs: 1+
+      OUTPUT_DIRECTORY:
+        nargs: 1
+      PROTO_INCLUDES:
+        nargs: 1+
+      EXPORT_MACRO:
+        nargs: 1
+      OUTPUT_HEADERS:
+        nargs: 1
+      OUTPUT_TARGETS:
+        nargs: 1
+      HEADER_GUARD:
+        nargs: 1
+      QML_URI:
+        nargs: 1+
+
+  target_sources:
+    pargs: 1
+    kwargs:
+      BASE_DIRS:
+        nargs: 1+
+        sortable: true
+        no_autosort: false
+      FILES:
+        nargs: 1+
+        sortable: true
+        no_autosort: false
+      FILE_SET:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+      INTERFACE:
+        nargs: '*'
+        sortable: false
+        no_autosort: false
+      PRIVATE:
+        nargs: '*'
+        sortable: false
+        no_autosort: false
+      PUBLIC:
+        nargs: '*'
+        sortable: false
+        no_autosort: false
+      TYPE:
+        nargs: 1
+        sortable: false
+        no_autosort: false
+  CPMAddPackage:
+    pargs: "?"
+    kwargs:
+      NAME:
+        nargs: 1
+      VERSION:
+        nargs: 1
+      GIT_REPOSITORY:
+        nargs: 1
+      GIT_TAG:
+        nargs: 1
+      GITHUB_REPOSITORY:
+        nargs: 1
+      GITLAB_REPOSITORY:
+        nargs: 1
+      SOURCE_DIR:
+        nargs: 1
+      URL:
+        nargs: "*"
+      OPTIONS:
+        nargs: "*"
+      PATCHES:
+        nargs: "*"
+  file:
+    pargs: 0
+    kwargs:
+      DOWNLOAD:
+        nargs: 1+
+      EXPECTED_HASH:
+        nargs: 1
+      GLOB_RECURSE:
+        nargs: 1
+      LIST_DIRECTORIES:
+        nargs: 1
+      RELATIVE:
+        nargs: 1
+      GLOB:
+        nargs: 1
+  CPMDeclarePackage:
+    pargs: 1
+    kwargs:
+      NAME:
+        nargs: 1
+      VERSION:
+        nargs: 1
+      GIT_REPOSITORY:
+        nargs: 1
+      GIT_TAG:
+        nargs: 1
+      GITHUB_REPOSITORY:
+        nargs: 1
+      GITLAB_REPOSITORY:
+        nargs: 1
+      SOURCE_DIR:
+        nargs: 1
+      URL:
+        nargs: "*"
+      OPTIONS:
+        nargs: "*"
+      PATCHES:
+        nargs: "*"

@@ -1,0 +1,31 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+exclude: ^tools/
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--unsafe]
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+      - id: check-symlinks
+      - id: forbid-submodules
+
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v22.1.5
+    hooks:
+      - id: clang-format
+        verbose: true
+        types_or: [c++, c, cuda]
+
+  - repo: local
+    hooks:
+      - id: cmakefmt
+        name: cmakefmt
+        language: system
+        entry: cmakefmt --in-place --no-verify
+        files: '(CMakeLists\.txt|\.cmake)$'
