@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 #include "GenericTestSuite.hpp"
 
 template <class T>
