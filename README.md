@@ -12,7 +12,7 @@ variable names and comments, which is naturally fragile. This library instead im
   expecting radians.
 - Free abstraction in terms of space. All `Measurement` types take `sizeof(double)` bytes.
 - constexpr support
-- Bunch of tests, covering all public interface of `Measurement` template and derived types included in the library.
+- Bunch of tests, covering entire public interface of `Measurement` template and derived types included in the library.
 
 All that comes from base CRTP template, so addition of new types require minimal amount of code.
 
@@ -167,8 +167,8 @@ double r = a / zero; // throws std::domain_error
 ### Normalization
 
 When working with angles, it is often useful to work with "trimmed" [0-359 deg] values instead of large values like 1000
-degrees, which effectively returns the signed fractional part of the `Measurement`, expressed in the `Units` passed as
-an argument. That trimming operation is generalized in form of `normalized` function.
+degrees. That trimming operation is generalized in form of `normalized` function  which effectively returns the signed 
+fractional part of the `Measurement`, expressed in the `Units` passed as an argument. 
 
 ```cpp
 auto angle = Angle{AngleUnits::Degrees, 721};
